@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Search from "./Search";
 import styles from "../styles/Home.module.css";
+import Results from "./Results";
 
 export default function Home() {
   return (
@@ -18,10 +19,11 @@ export default function Home() {
 
         <p className={styles.description}>
           {/* Find the book you're looking for. */}
-          Search the world's most comprehensive index of full-text books <br /> and find the perfect book for you.
+          Search the world's most comprehensive index of full-text books and find the perfect book for you.
         </p>
 
         <Search />
+        {/* <Results /> */}
 
         {/* <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
