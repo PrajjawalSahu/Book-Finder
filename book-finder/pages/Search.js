@@ -4,16 +4,16 @@ import React, { useEffect, useState } from "react";
 export default function Search() {
   // console.log(data.items[0].volumeInfo);
   // console.log(data);
-  const [books, setBooks] = useState(null);
-  const [isEmptyInput, setEmptyInput] = useState(true);
+  // const [books, setBooks] = useState(null);
+  // const [isEmptyInput, setEmptyInput] = useState(true);
   const [input, setInput] = useState("");
 
   // useEffect(() => {
-    // setBooks(null);
+  // setBooks(null);
   // },[isEmptyInput]);
 
   async function onSearchBook(event) {
-    setEmptyInput(false);
+    // setEmptyInput(false);
     event.preventDefault();
     // ======================
     // async function getServerSideProps(context) {                     //if I am sending the input then can we still do Server Side API fetch? ANS- NO
@@ -25,23 +25,33 @@ export default function Search() {
       // return {
       //   props: { data },
       // };
-      setBooks(data);
+      // setBooks(data);
+      // console.log(data);
+
+      //+++++++++++++++++++++
+      // Put the object into storage
+      localStorage.setItem("booksLocalStorage", JSON.stringify(data));
+      console.log("searching :" ,input)
+      localStorage.setItem("SearchedInput", input);
+      //+++++++++++++++++++++
+      
     } catch (err) {
       console.error(err);
     }
     // ======================
     setInput("");
-    setEmptyInput(true);
-    window.location.href = "/Results";
+    // setEmptyInput(true);
+
+    window.location.href = "/Results";  
   }
-  console.log(books);
+  // console.log(retrievedBooks);
 
   return (
     <div className={styles.search_container}>
       <form onSubmit={onSearchBook}>
         <input
           className={styles.search_input}
-          placeholder="Search Books"
+          placeholder="Book/Author/Keyword..."
           value={input}
           onInput={(e) => setInput(e.target.value)}
         />
@@ -50,7 +60,7 @@ export default function Search() {
           value="Submit"
           className={`${styles.btn} ${styles.first}`}
         >
-          &#x1F50D;
+          Search
         </button>
       </form>
     </div>

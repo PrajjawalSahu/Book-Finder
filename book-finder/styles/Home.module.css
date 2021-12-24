@@ -36,12 +36,12 @@
 .title a:hover,
 .title a:focus,
 .title a:active {
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 .title {
   margin: 0;
-  line-height: 1.15;
+  line-height: 0.95;
   font-size: 4rem;
 }
 
@@ -51,8 +51,8 @@
 }
 
 .description {
-  margin: 4rem 0;
-  line-height: 1.5;
+  margin: 2rem 0 4rem 0;
+  line-height: 1.15;
   font-size: 1.5rem;
 }
 
